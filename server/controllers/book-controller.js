@@ -3,7 +3,6 @@ const Book = require('../models/book');
 const getAllBooks = async (req, res) => {
   try {
     const books = await Book.find();
-    console.log(books)
     if(books.length > 0) {
       res.status(200).json({
         success: true,
