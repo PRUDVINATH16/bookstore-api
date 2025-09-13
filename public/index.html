@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookStore API</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>📚 BookStore API</h1>
+      <p>Modern book management interface with stunning glassmorphism design</p>
+    </div>
+
+    <div class="grid">
+      <div class="glass-card">
+        <h2 class="card-title">✨ Add New Book</h2>
+        <form id="bookForm">
+          <div class="form-group">
+            <input type="text" name="title" placeholder="Book Title" required class="input-field" />
+            <input type="text" name="author" placeholder="Author Name" required class="input-field" />
+            <input type="number" name="price" placeholder="Price (₹)" required class="input-field" />
+          </div>
+          <button type="submit" class="btn pulse">Add Book</button>
+        </form>
+        <div id="response" class="result-container"></div>
+      </div>
+
+      <div class="glass-card">
+        <h2 class="card-title">📖 All Books</h2>
+        <button class="getAllBooks btn btn-secondary">Get All Books</button>
+        <div class="all-books-result result-container scrollable"></div>
+      </div>
+
+      <div class="glass-card">
+        <h2 class="card-title">🔍 Find Book by ID</h2>
+        <div class="form-group">
+          <input type="text" id="bookId" placeholder="Enter Book ID" class="input-field" />
+        </div>
+        <button class="getBookById btn btn-secondary">Get Book</button>
+        <div class="book-result result-container"></div>
+      </div>
+
+      <div class="glass-card">
+        <h2 class="card-title">🗑️ Delete Book</h2>
+        <div class="form-group">
+          <input type="text" id="deleteBookId" placeholder="Enter Book ID to Delete" class="input-field" />
+        </div>
+        <button class="deleteBookById btn btn-danger">Delete Book</button>
+        <div class="delete-book-result result-container"></div>
+      </div>
+
+      <div class="glass-card" style="grid-column: 1 / -1;">
+        <h2 class="card-title">✏️ Update Book</h2>
+        <div class="form-group">
+          <input type="text" id="updateBookId" placeholder="Enter Book ID to Update" class="input-field" />
+          <input type="text" id="updateBookTitle" placeholder="New Title" class="input-field" />
+          <input type="text" id="updateBookAuthor" placeholder="New Author" class="input-field" />
+          <input type="number" id="updateBookPrice" placeholder="New Price (₹)" class="input-field" />
+        </div>
+        <button class="updateBookById btn btn-warning">Update Book</button>
+        <div class="update-book-result result-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
