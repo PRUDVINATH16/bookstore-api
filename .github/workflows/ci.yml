@@ -1,0 +1,41 @@
+name: Build and Lint # workflow name
+
+on: # triggers
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs: # <-- THIS is where your jobs start
+  build-and-test:
+    runs-on: ubuntu-latest # the machine your job will run on
+
+    steps: # the steps in this job
+      - name: Checkout code
+        uses: actions/checkout@v4 # Use a more recent version
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4 # Use a more recent version
+        with:
+          node-version: 20 # ✅ CORRECTED: Matched with Dockerfile version
+          cache: 'npm' # ✨ IMPROVEMENT: Enable dependency caching
+          cache-dependency-path: server/package-lock.json # ✨ IMPROVEMENT: Specify lock file location
+
+      - name: Install dependencies
+        working-directory: ./server # Using ./ is slightly clearer
+        run: npm install
+
+      - name: Run ESLint
+        working-directory: ./server
+        run: npm run lint -- --max-warnings=0 # Added -- to separate flags for npm
+
+      - name: Check Formatting with Prettier
+        working-directory: ./server
+        # ✅ CORRECTED: Use 'npx prettier --check .' to validate formatting without changing files
+        run: npx prettier --check .
+
+      - name: Build Frontend image
+        run: docker build -t bookstore-frontend ./public
+
+      - name: Build Backend image
+        run: docker build -t bookstore-backend ./server

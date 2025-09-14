@@ -6,7 +6,7 @@ const BookSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Book title is required'],
     trim: true,
-    maxlength: [100, 'Book title cannot exceed 100 characters']
+    maxlength: [100, 'Book title cannot exceed 100 characters'],
   },
   author: {
     type: String,
@@ -19,8 +19,8 @@ const BookSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 // 👇 plug in the auto-increment on 'id'
 BookSchema.plugin(AutoIncrement, { inc_field: 'id' });

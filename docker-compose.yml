@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./server   # folder where your backend Dockerfile is
+    container_name: bookstore-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./server/.env    # your environment variables
+    #depends_on:
+    #  - db                # optional, if you have a database
+
+  frontend:
+    build:
+      context: ./public # folder where your frontend Dockerfile is
+    container_name: bookstore-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend

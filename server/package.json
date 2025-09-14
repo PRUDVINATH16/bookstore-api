@@ -4,7 +4,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext.js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -16,5 +19,9 @@
     "express": "^5.1.0",
     "mongoose": "^8.16.4",
     "mongoose-sequence": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2"
   }
 }

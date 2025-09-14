@@ -12,7 +12,7 @@ const PORT = 3000;
 connectToDB();
 
 // Middleware
-app.use(cors());            // 👈 this enables CORS for all origins
+app.use(cors()); // 👈 this enables CORS for all origins
 app.use(express.json());
 
 // Serve everything inside /public
