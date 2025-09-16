@@ -29,7 +29,7 @@ form.addEventListener('submit', async (e) => {
   const data = Object.fromEntries(formData.entries());
 
   try {
-    const res = await fetch('/api/books/add', {
+    const res = await fetch('https://bookstore-api-ppq5.onrender.com/api/books/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ form.addEventListener('submit', async (e) => {
 
 getAllBooksBtn.addEventListener('click', async () => {
   try {
-    const response = await fetch('/api/books/get');
+    const response = await fetch('https://bookstore-api-ppq5.onrender.com/api/books/get');
     const result = await response.json();
     allBooksResultContainer.innerHTML = '';
     
@@ -88,7 +88,7 @@ getBookByIdBtn.addEventListener('click', async () => {
   }
   
   try {
-    const response = await fetch(`/api/books/get/${bookId}`);
+    const response = await fetch(`https://bookstore-api-ppq5.onrender.com/api/books/get/${bookId}`);
     const result = await response.json();
     SingleBookResultContainer.innerHTML = '';
     
@@ -119,7 +119,7 @@ deleteBookByIdBtn.addEventListener('click', async () => {
   }
   
   try {
-    const response = await fetch(`/api/books/delete/${bookId}`, {
+    const response = await fetch(`https://bookstore-api-ppq5.onrender.com/api/books/delete/${bookId}`, {
       method: 'DELETE'
     });
     
@@ -149,7 +149,7 @@ updateBookByIdBtn.addEventListener('click', async () => {
   }
 
   try {
-    const response = await fetch(`/api/books/update/${bookId}`, {
+    const response = await fetch(`https://bookstore-api-ppq5.onrender.com/api/books/update/${bookId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
