@@ -4,7 +4,6 @@ const connectToDB = require('./database/db');
 const path = require('path');
 const bookRoutes = require('./routes/book-route');
 const cors = require('cors');
-//const test = "un used var"
 
 const app = express();
 const PORT = 3000;
